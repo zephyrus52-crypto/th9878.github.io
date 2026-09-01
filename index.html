@@ -19,7 +19,7 @@
     @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.about-grid{grid-template-columns:1fr}.about-copy{max-width:850px}.viewer.open{grid-template-columns:minmax(0,1fr) 100px}.viewer-media{max-width:calc(100vw - 120px)}}
     @media(max-width:700px){:root{--nav:60px}.shell{padding:0 14px}header{padding:0 14px}.brand{font-size:12px}.nav{gap:14px;font-size:12px}.grid{grid-template-columns:repeat(2,1fr);gap:6px}.card-info{opacity:1;transform:none;left:10px;bottom:9px}.card img{filter:brightness(.72)}.title{font-size:13px}.date{font-size:9px}.about-name{font-size:54px}.about-copy{font-size:22px}.meta-row{grid-template-columns:1fr;gap:8px}.viewer.open{grid-template-columns:1fr}.thumbs{display:none}.viewer-media{max-width:100vw;max-height:82vh}.section-head{align-items:start;flex-direction:column;gap:8px}footer{flex-direction:column}}
   </style>
-<script type="text/javascript" nonce="381b93459a624d02bfc51f87811" src="//local.adguard.org?ts=1788230332023&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_0000000096c88208a6ea6bb660c175e1%26fn%3Dindex%25281%2529.html%26cd%3Dattachment%26ts%3D496730%26p%3Dfs%26cid%3D1%26sig%3D2ff5b434e7a000cb9cbfccb067f9832149b023e1496c9a4ca69b69fa6f15a286%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="381b93459a624d02bfc51f87811" src="//local.adguard.org?ts=1788230332023&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<script type="text/javascript" nonce="381b93459a624d02bfc51f87811" src="//local.adguard.org?ts=1788232106965&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000936c8207a5fda5aa95f28f5a%26fn%3Dindex-personal-auto.html%26cd%3Dattachment%26ts%3D496731%26p%3Dfs%26cid%3D1%26sig%3D33145305229c495a1b962fb815031f5d21c5e4414e961c435df5b7157f88951f%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="381b93459a624d02bfc51f87811" src="//local.adguard.org?ts=1788232106965&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body>
 <header>
   <a class="brand" href="#about" data-route="about">O TAE HOON</a>
@@ -50,8 +50,7 @@
   </section>
 
   <section id="personal" class="view">
-    <div class="section-head"><h1>Personal Works</h1><p>Personal · Re:Lighting · Sketch · Designer</p></div>
-    <div class="filters" id="personalFilters"></div>
+    <div class="section-head"><h1>Personal Works</h1></div>
     <div id="personalGrid" class="grid"></div>
     <footer><span>© 2026 O Tae Hoon</span><div class="footer-actions"><button class="link-btn email-copy">Email ✉</button><button class="link-btn" id="backTop">Back to top ↑</button></div></footer>
   </section>
@@ -77,21 +76,118 @@
 
 <script>
 /*
-  프로젝트 추가 방법
-  1) 아래 PROJECTS 배열에 항목을 추가합니다.
-  2) cover/images 경로는 GitHub 저장소 루트 기준입니다.
-  3) publishedAt은 YYYY-MM-DD. NEW 표시는 최근 30일 기준입니다.
-  4) category: PERSONAL / RELIGHT / SKETCH / DESIGNER
+  Personal Works 자동 로딩
+  1) images/Personal 안의 하위 폴더가 각각 하나의 작품 카드가 됩니다.
+  2) 각 폴더 안의 PNG/JPG/JPEG/WEBP/GIF/AVIF 이미지를 전부 자동으로 읽습니다.
+  3) 새 작품 폴더나 새 이미지를 추가해도 HTML에 개수를 직접 적을 필요가 없습니다.
+  4) 제목/날짜를 다듬고 싶을 때만 PROJECT_META에 선택적으로 추가합니다.
   5) Firestore 조회수/랭킹은 추후 별도 연결 예정입니다.
 */
-const PROJECTS = [
-  {id:'sci-fi-corridor', title:'Sci-Fi Corridor', category:'PERSONAL', publishedAt:'2025-01-10', cover:'images/Personal/2025010scificorridor/1.png', images:['images/Personal/2025010scificorridor/1.png','images/Personal/2025010scificorridor/2.png','images/Personal/2025010scificorridor/3.png']},
-  {id:'tiles-study', title:'Tiles Study', category:'PERSONAL', publishedAt:'2025-07-01', cover:'images/Personal/202507tiles/1.png', images:['images/Personal/202507tiles/1.png','images/Personal/202507tiles/2.png','images/Personal/202507tiles/3.png']},
-  {id:'pillar-study', title:'Pillar Study', category:'PERSONAL', publishedAt:'2025-09-01', cover:'images/Personal/202509pillar/1.png', images:['images/Personal/202509pillar/1.png','images/Personal/202509pillar/2.png','images/Personal/202509pillar/3.png']},
-  {id:'rock-study', title:'Rock Study', category:'PERSONAL', publishedAt:'2025-12-01', cover:'images/Personal/202512rockstudy/1.png', images:['images/Personal/202512rockstudy/1.png','images/Personal/202512rockstudy/2.png','images/Personal/202512rockstudy/3.png']}
-];
+const GITHUB_OWNER = 'zephyrus52-crypto';
+const GITHUB_REPO = 'th9878.github.io';
+const GITHUB_BRANCH = 'main';
+const PERSONAL_ROOT = 'images/Personal/';
 
-const state={route:'about',filter:'ALL',viewerProject:null,viewerIndex:0,returnRoute:null,allLimit:16};
+/*
+  폴더명만으로도 카드가 자동 생성됩니다.
+  아래 PROJECT_META는 제목/날짜를 보기 좋게 바꾸고 싶은 작품만 선택적으로 적는 곳입니다.
+  여기에 없는 폴더도 Personal 폴더 아래에 있으면 자동으로 표시됩니다.
+*/
+const PROJECT_META = {
+  '2025010scificorridor': {title:'Sci-Fi Corridor', publishedAt:'2025-01-10'},
+  '202507tiles': {title:'Tiles Study', publishedAt:'2025-07-01'},
+  '202509pillar': {title:'Pillar Study', publishedAt:'2025-09-01'},
+  '202512rockstudy': {title:'Rock Study', publishedAt:'2025-12-01'}
+};
+
+let PROJECTS = [];
+const imageCache = new Map();
+
+function naturalPathSort(a,b){
+  return a.localeCompare(b, undefined, {numeric:true, sensitivity:'base'});
+}
+
+function titleFromFolder(folder){
+  const known=PROJECT_META[folder]?.title;
+  if(known)return known;
+  let name=folder.replace(/^\d{6,8}/,'').replace(/[_-]+/g,' ').trim();
+  if(!name)name=folder;
+  return name.replace(/\b\w/g,c=>c.toUpperCase());
+}
+
+function dateFromFolder(folder){
+  const known=PROJECT_META[folder]?.publishedAt;
+  if(known)return known;
+  const m=folder.match(/^(\d{4})(\d{2})(\d{2})?/);
+  if(!m)return '';
+  const year=m[1], month=m[2], day=(m[3] && Number(m[3])>=1 && Number(m[3])<=31)?m[3]:'01';
+  return `${year}-${month}-${day}`;
+}
+
+async function discoverPersonalProjects(){
+  try{
+    // 저장소 트리를 한 번만 받아 Personal 안의 모든 하위 폴더/이미지를 자동 구성합니다.
+    const api=`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/git/trees/${GITHUB_BRANCH}?recursive=1`;
+    const response=await fetch(api,{headers:{'Accept':'application/vnd.github+json'}});
+    if(!response.ok)throw new Error(`GitHub API ${response.status}`);
+    const data=await response.json();
+    if(data.truncated)console.warn('GitHub tree response was truncated.');
+
+    const grouped=new Map();
+    (data.tree||[]).forEach(item=>{
+      if(item.type!=='blob')return;
+      if(!item.path.startsWith(PERSONAL_ROOT))return;
+      if(!/\.(png|jpe?g|webp|gif|avif)$/i.test(item.path))return;
+
+      const rest=item.path.slice(PERSONAL_ROOT.length);
+      const slash=rest.indexOf('/');
+      if(slash<1)return; // Personal 바로 아래 파일은 작품 폴더로 취급하지 않음
+      const folder=rest.slice(0,slash);
+      if(!grouped.has(folder))grouped.set(folder,[]);
+      grouped.get(folder).push(item.path);
+    });
+
+    PROJECTS=[...grouped.entries()].map(([folder,paths])=>{
+      paths.sort(naturalPathSort);
+      const id=`personal-${folder.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`;
+      const images=paths.map(path=>encodeURI(path));
+      const project={
+        id,
+        title:titleFromFolder(folder),
+        category:'PERSONAL',
+        publishedAt:dateFromFolder(folder),
+        folder:`${PERSONAL_ROOT}${folder}`,
+        cover:images[0],
+        images
+      };
+      imageCache.set(id,images);
+      return project;
+    }).sort((a,b)=>{
+      const da=a.publishedAt||'', db=b.publishedAt||'';
+      return db.localeCompare(da)||a.title.localeCompare(b.title);
+    });
+
+    console.info(`Loaded ${PROJECTS.length} Personal project folders.`);
+  }catch(err){
+    console.warn('Could not discover Personal folders:',err);
+    // GitHub API가 일시적으로 실패해도 기존 대표 작품은 보이도록 최소 fallback 유지
+    PROJECTS=[
+      {id:'sci-fi-corridor',title:'Sci-Fi Corridor',category:'PERSONAL',publishedAt:'2025-01-10',folder:'images/Personal/2025010scificorridor',cover:'images/Personal/2025010scificorridor/1.png',images:['images/Personal/2025010scificorridor/1.png']},
+      {id:'tiles-study',title:'Tiles Study',category:'PERSONAL',publishedAt:'2025-07-01',folder:'images/Personal/202507tiles',cover:'images/Personal/202507tiles/1.png',images:['images/Personal/202507tiles/1.png']},
+      {id:'pillar-study',title:'Pillar Study',category:'PERSONAL',publishedAt:'2025-09-01',folder:'images/Personal/202509pillar',cover:'images/Personal/202509pillar/1.png',images:['images/Personal/202509pillar/1.png']},
+      {id:'rock-study',title:'Rock Study',category:'PERSONAL',publishedAt:'2025-12-01',folder:'images/Personal/202512rockstudy',cover:'images/Personal/202512rockstudy/1.png',images:['images/Personal/202512rockstudy/1.png']}
+    ];
+  }
+}
+
+async function loadProjectImages(project){
+  if(imageCache.has(project.id))return imageCache.get(project.id);
+  const images=project.images?.length?project.images:[project.cover];
+  imageCache.set(project.id,images);
+  return images;
+}
+
+const state={route:'about',filter:'ALL',viewerProject:null,viewerImages:[],viewerIndex:0,returnRoute:null,allLimit:16};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const categoryLabel=c=>({PERSONAL:'Personal',RELIGHT:'Re:Lighting',SKETCH:'Sketch Note',DESIGNER:'Designer'})[c]||c;
 const niceDate=s=>{if(!s)return'';const d=new Date(s+'T00:00:00');return d.toLocaleDateString('en-US',{year:'numeric',month:'short'});};
@@ -101,15 +197,74 @@ $$('[data-route]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();
 
 function card(p,rank){const el=document.createElement('button');el.className='card';el.dataset.id=p.id;el.innerHTML=`<img loading="lazy" src="${p.cover}" alt="${p.title}"><div class="card-info"><div class="date">${niceDate(p.publishedAt)}</div><div class="title">${p.title}</div></div>${isNew(p.publishedAt)?'<span class="badge">NEW</span>':''}${rank?`<span class="rank">#${rank}</span>`:''}`;el.querySelector('img').addEventListener('error',()=>el.remove());el.addEventListener('click',()=>openViewer(p));return el;}
 function renderFilters(root,cats,cb){root.innerHTML='';['ALL',...cats].forEach(c=>{const b=document.createElement('button');b.className='filter'+(state.filter===c?' active':'');b.textContent=c==='ALL'?'ALL':categoryLabel(c);b.onclick=()=>{state.filter=c;renderFilters(root,cats,cb);cb();};root.appendChild(b)});}
-function renderPersonal(){const cats=['PERSONAL','RELIGHT','SKETCH','DESIGNER'];renderFilters($('#personalFilters'),cats,drawPersonal);drawPersonal();}
-function drawPersonal(){const grid=$('#personalGrid');grid.innerHTML='';const list=PROJECTS.filter(p=>state.filter==='ALL'||p.category===state.filter);if(!list.length){grid.innerHTML='<div class="empty">이 카테고리의 프로젝트 데이터를 PROJECTS 배열에 추가하면 여기에 표시됩니다.</div>';return;}list.forEach(p=>grid.appendChild(card(p)));}
+function renderPersonal(){drawPersonal();}
+function drawPersonal(){const grid=$('#personalGrid');grid.innerHTML='';const list=PROJECTS.filter(p=>p.category==='PERSONAL');if(!list.length){grid.innerHTML='<div class="empty">등록된 Personal Works가 없습니다.</div>';return;}list.forEach(p=>grid.appendChild(card(p)));}
 function renderAll(){const cats=[...new Set(PROJECTS.map(p=>p.category))];renderFilters($('#allFilters'),cats,drawAll);drawAll();}
 function drawAll(){const grid=$('#allGrid');grid.innerHTML='';let list=PROJECTS.filter(p=>state.filter==='ALL'||p.category===state.filter);list=[...list].sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt));$('#allCount').textContent=`${list.length} projects`;list.slice(0,state.allLimit).forEach((p,i)=>grid.appendChild(card(p,i<6?i+1:null)));if(!list.length)grid.innerHTML='<div class="empty">등록된 프로젝트가 없습니다.</div>';}
 
-function openViewer(p){state.viewerProject=p;state.viewerIndex=0;state.returnRoute=state.route;$('#viewer').classList.add('open');$('#viewer').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';paintViewer();countViewOnce(p.id,0);}
-function closeViewer(){ $('#viewer').classList.remove('open');$('#viewer').setAttribute('aria-hidden','true');document.body.style.overflow=''; }
-function paintViewer(){const p=state.viewerProject;if(!p)return;const imgs=p.images?.length?p.images:[p.cover];state.viewerIndex=(state.viewerIndex+imgs.length)%imgs.length;$('#viewerImage').src=imgs[state.viewerIndex];$('#viewerImage').alt=p.title;$('#viewerTitle').textContent=p.title;$('#viewerMeta').textContent=`${categoryLabel(p.category)} · ${niceDate(p.publishedAt)} · ${state.viewerIndex+1}/${imgs.length}`;const t=$('#thumbs');t.innerHTML='';imgs.forEach((src,i)=>{const b=document.createElement('button');b.className='thumb'+(i===state.viewerIndex?' active':'');b.innerHTML=`<img src="${src}" alt="">`;b.onclick=()=>{state.viewerIndex=i;paintViewer();countViewOnce(p.id,i)};t.appendChild(b)});}
-function moveViewer(dir){const p=state.viewerProject;if(!p)return;const n=p.images?.length||1;state.viewerIndex=(state.viewerIndex+dir+n)%n;paintViewer();countViewOnce(p.id,state.viewerIndex);}
+async function openViewer(p){
+  state.viewerProject=p;
+  state.viewerIndex=0;
+  state.returnRoute=state.route;
+  state.viewerImages=[p.cover];
+
+  $('#viewer').classList.add('open');
+  $('#viewer').setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+
+  $('#viewerTitle').textContent=p.title;
+  $('#viewerMeta').textContent='Loading images…';
+  $('#viewerImage').src=p.cover;
+  $('#thumbs').innerHTML='';
+
+  const images=await loadProjectImages(p);
+  if(state.viewerProject!==p)return;
+
+  state.viewerImages=images;
+  state.viewerIndex=0;
+  paintViewer();
+  countViewOnce(p.id,0);
+}
+
+function closeViewer(){
+  $('#viewer').classList.remove('open');
+  $('#viewer').setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+function paintViewer(){
+  const p=state.viewerProject;
+  if(!p)return;
+  const imgs=state.viewerImages?.length?state.viewerImages:[p.cover];
+  state.viewerIndex=(state.viewerIndex+imgs.length)%imgs.length;
+  $('#viewerImage').src=imgs[state.viewerIndex];
+  $('#viewerImage').alt=p.title;
+  $('#viewerTitle').textContent=p.title;
+  $('#viewerMeta').textContent=`${categoryLabel(p.category)} · ${niceDate(p.publishedAt)} · ${state.viewerIndex+1}/${imgs.length}`;
+
+  const t=$('#thumbs');
+  t.innerHTML='';
+  imgs.forEach((src,i)=>{
+    const b=document.createElement('button');
+    b.className='thumb'+(i===state.viewerIndex?' active':'');
+    b.innerHTML=`<img src="${src}" alt="">`;
+    b.onclick=()=>{
+      state.viewerIndex=i;
+      paintViewer();
+      countViewOnce(p.id,i);
+    };
+    t.appendChild(b);
+  });
+}
+
+function moveViewer(dir){
+  const p=state.viewerProject;
+  if(!p)return;
+  const n=state.viewerImages?.length||1;
+  state.viewerIndex=(state.viewerIndex+dir+n)%n;
+  paintViewer();
+  countViewOnce(p.id,state.viewerIndex);
+}
 $('.viewer-close').onclick=closeViewer;$('.prev').onclick=()=>moveViewer(-1);$('.next').onclick=()=>moveViewer(1);$('#viewer').addEventListener('click',e=>{if(e.target===$('#viewer'))closeViewer()});
 window.addEventListener('keydown',e=>{if(!$('#viewer').classList.contains('open'))return;if(e.key==='Escape')closeViewer();if(e.key==='ArrowLeft')moveViewer(-1);if(e.key==='ArrowRight')moveViewer(1)});
 $('#viewerMain').addEventListener('wheel',e=>{if(!$('#viewer').classList.contains('open'))return;e.preventDefault();moveViewer(e.deltaY>0?1:-1)},{passive:false});
@@ -120,7 +275,12 @@ $$('.email-copy').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.w
 $('#backTop').onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
 
 window.addEventListener('scroll',()=>{if(state.route!=='all')return;if(innerHeight+scrollY>=document.documentElement.scrollHeight-700&&state.allLimit<PROJECTS.length){state.allLimit+=12;drawAll();}});
-const initial=location.hash.replace('#','');route(['about','personal','all'].includes(initial)?initial:'about');
+async function bootstrap(){
+  await discoverPersonalProjects();
+  const initial=location.hash.replace('#','');
+  route(['about','personal','all'].includes(initial)?initial:'about');
+}
+bootstrap();
 </script>
 </body>
 </html>
