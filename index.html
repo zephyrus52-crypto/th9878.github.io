@@ -19,7 +19,7 @@
     @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.about-grid{grid-template-columns:1fr}.about-copy{max-width:850px}.viewer.open{grid-template-columns:minmax(0,1fr) 100px}.viewer-media{max-width:calc(100vw - 120px)}}
     @media(max-width:700px){:root{--nav:60px}.shell{padding:0 14px}header{padding:0 14px}.brand{font-size:12px}.nav{gap:14px;font-size:12px}.grid{grid-template-columns:repeat(2,1fr);gap:6px}.card-info{opacity:1;transform:none;left:10px;bottom:9px}.card img{filter:brightness(.72)}.title{font-size:13px}.date{font-size:9px}.about-name{font-size:54px}.about-copy{font-size:22px}.meta-row{grid-template-columns:1fr;gap:8px}.viewer.open{grid-template-columns:1fr}.thumbs{display:none}.viewer-media{max-width:100vw;max-height:82vh}.section-head{align-items:start;flex-direction:column;gap:8px}footer{flex-direction:column}}
   </style>
-<script type="text/javascript" nonce="160975715c0a4cfc9d448898437" src="//local.adguard.org?ts=1788283291412&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000c27c8206b724524cf9aa90f1%26fn%3Dindex-about-centered.html%26cd%3Dattachment%26ts%3D496746%26p%3Dfs%26cid%3D1%26sig%3Dbcc74aa15660ccb2401c19b92b6594ac152d908601845090388ba57e601c45db%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="160975715c0a4cfc9d448898437" src="//local.adguard.org?ts=1788283291412&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000232882069a2d7731c89fa132%26fn%3Dindex-thumbnail-auto.html%26cd%3Dattachment%26ts%3D496758%26p%3Dfs%26cid%3D1%26sig%3D53327768b7331b9baf902057b5ee3e84ebcbacfad2694c14a9ec39fe8cef192f%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body>
 <header>
   <a class="brand" href="#about" data-route="about">O TAE HOON</a>
@@ -82,7 +82,7 @@
   Personal Works 자동 로딩
   1) Personal 탭: images/Personal 아래의 작품 폴더를 자동으로 읽습니다.
   2) Early Works 탭: images/EarlyWorks (또는 images/Early Works / images/Early) 아래의 작품 폴더를 자동으로 읽습니다.
-  3) 각 작품 폴더 안의 PNG/JPG/JPEG/WEBP/GIF/AVIF 이미지는 전부 자동으로 읽습니다.
+  3) 각 작품 폴더 안에서 파일명에 "thumbnail"이 들어간 이미지는 카드 대표 썸네일로 우선 사용합니다.
   4) 새 작품 폴더나 새 이미지를 추가해도 HTML에 개수를 직접 적을 필요가 없습니다.
   5) 제목/날짜를 다듬고 싶을 때만 PROJECT_META에 선택적으로 추가합니다.
 */
@@ -172,14 +172,31 @@ async function discoverPersonalProjects(){
       paths.sort(naturalPathSort);
       const slug=folder.toLowerCase().replace(/[^a-z0-9]+/g,'-');
       const id=`${category.toLowerCase()}-${slug}`;
-      const images=paths.map(path=>encodeURI(path));
+
+      // 파일명에 "thumbnail"이 들어간 이미지를 카드 대표 이미지로 우선 사용합니다.
+      // 예: thumbnail.png / sci-fi_thumbnail.jpg / Thumbnail.webp
+      const thumbnailPath=paths.find(path=>{
+        const fileName=path.split('/').pop()||'';
+        return /thumbnail/i.test(fileName);
+      });
+
+      // thumbnail 파일은 작품 상세 이미지 목록에서는 제외합니다.
+      // 일반 이미지가 하나도 없을 때만 thumbnail을 상세 이미지에도 사용합니다.
+      const contentPaths=paths.filter(path=>{
+        const fileName=path.split('/').pop()||'';
+        return !/thumbnail/i.test(fileName);
+      });
+
+      const cover=encodeURI(thumbnailPath||paths[0]);
+      const images=(contentPaths.length?contentPaths:paths).map(path=>encodeURI(path));
+
       const project={
         id,
         title:titleFromFolder(folder),
         category,
         publishedAt:dateFromFolder(folder),
         folder:`${root}${folder}`,
-        cover:images[0],
+        cover,
         images
       };
       imageCache.set(id,images);
