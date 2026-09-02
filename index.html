@@ -19,7 +19,7 @@
     @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.about-grid{grid-template-columns:1fr}.about-copy{max-width:850px}.viewer.open{grid-template-columns:minmax(0,1fr) 100px}.viewer-media{max-width:calc(100vw - 120px)}}
     @media(max-width:700px){:root{--nav:60px}.shell{padding:0 14px}header{padding:0 14px}.brand{font-size:12px}.nav{gap:14px;font-size:12px}.grid{grid-template-columns:repeat(2,1fr);gap:6px}.card-info{opacity:1;transform:none;left:10px;bottom:9px}.card img{filter:brightness(.72)}.title{font-size:13px}.date{font-size:9px}.about-name{font-size:54px}.about-copy{font-size:22px}.meta-row{grid-template-columns:1fr;gap:8px}.viewer.open{grid-template-columns:1fr}.thumbs{display:none}.viewer-media{max-width:100vw;max-height:82vh}.section-head{align-items:start;flex-direction:column;gap:8px}footer{flex-direction:column}}
   </style>
-<script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_0000000083bc820bb84a0f32dd81615d%26fn%3Dindex-scifi-video.html%26cd%3Dattachment%26ts%3D496758%26p%3Dfs%26cid%3D1%26sig%3D9c76ff581e86f848c345a1f1a03615ba146f74a0279d74617b8570eec3a2ae26%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_000000009a7481f8937f4dc1ffb35df4%26fn%3Dindex-scifi-graduation-video.html%26cd%3Dattachment%26ts%3D496759%26p%3Dfs%26cid%3D1%26sig%3D91dbd8da794f192373cee0ad2314d2529a5bef0d5c128befe82407c9a5060d10%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body>
 <header>
   <a class="brand" href="#about" data-route="about">O TAE HOON</a>
@@ -193,6 +193,10 @@ async function discoverPersonalProjects(){
 
       const thumbnailPosition=/early[\s_-]*works?2/i.test(folder)?'50% 18%':'50% 50%';
 
+      const projectYoutube=
+        PROJECT_META[folder]?.youtube ||
+        (/graduation[\s_-]*project/i.test(folder) ? '4k--IL_BY2Y' : null);
+
       const project={
         id,
         title:titleFromFolder(folder),
@@ -201,7 +205,7 @@ async function discoverPersonalProjects(){
         folder:`${root}${folder}`,
         cover,
         thumbnailPosition,
-        youtube:PROJECT_META[folder]?.youtube||null,
+        youtube:projectYoutube,
         images
       };
       imageCache.set(id,images);
