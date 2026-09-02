@@ -15,11 +15,11 @@
     .section-head{display:flex;justify-content:space-between;align-items:end;padding:54px 0 20px}.section-head h1{font-size:clamp(32px,5vw,70px);margin:0;letter-spacing:-.055em}.section-head p{margin:0;color:#777}.filters{display:flex;gap:8px;overflow-x:auto;padding:0 0 18px;min-height:58px}.filter{border:1px solid #262626;background:transparent;border-radius:99px;padding:9px 13px;color:#777;cursor:pointer}.filter.active,.filter:hover{color:#fff;border-color:#666}
     .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);padding-bottom:80px}.card{position:relative;overflow:hidden;background:#111;aspect-ratio:1.35/1;cursor:pointer;border:0;padding:0;text-align:left}.card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .4s}.card:hover img{transform:scale(1.025);filter:brightness(.6)}.card-info{position:absolute;left:16px;right:16px;bottom:14px;opacity:0;transform:translateY(8px);transition:.25s}.card:hover .card-info{opacity:1;transform:none}.date{font-size:11px;color:#a6a6a6;margin-bottom:5px}.title{font-size:18px;font-weight:650;letter-spacing:-.02em}.badge{position:absolute;top:12px;right:12px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);padding:5px 8px;border-radius:99px;font-size:10px;letter-spacing:.08em}.rank{position:absolute;top:12px;left:12px;background:#fff;color:#000;padding:5px 8px;border-radius:99px;font-size:10px;font-weight:800}.empty{grid-column:1/-1;border:1px dashed #2d2d2d;padding:70px 20px;text-align:center;color:#686868}
     footer{border-top:1px solid var(--line);padding:30px 0 56px;display:flex;justify-content:space-between;gap:20px;color:#777}.footer-actions{display:flex;gap:18px}.link-btn{padding:0;border:0;background:none;color:#aaa;cursor:pointer}.link-btn:hover{color:#fff}
-    .viewer{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.96);display:none}.viewer.open{display:grid;grid-template-columns:minmax(0,1fr) 132px}.viewer-main{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.viewer-media{max-width:calc(100vw - 180px);max-height:92vh;object-fit:contain;user-select:none;cursor:zoom-in;transition:transform .22s ease}.viewer-media.zoomed{transform:scale(1.8);cursor:zoom-out}.viewer-close{position:absolute;z-index:3;top:20px;left:22px;border:0;background:rgba(0,0,0,.45);width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer}.viewer-info{position:absolute;bottom:20px;left:24px;right:24px;pointer-events:none;text-shadow:0 1px 12px #000}.viewer-info h2{margin:0 0 5px;font-size:20px}.viewer-info p{margin:0;color:#aaa;font-size:12px}.arrow{position:absolute;top:50%;transform:translateY(-50%);height:68px;width:48px;border:0;background:rgba(0,0,0,.35);font-size:28px;cursor:pointer}.arrow.prev{left:0}.arrow.next{right:0}.thumbs{border-left:1px solid #202020;padding:10px;overflow:auto;display:flex;flex-direction:column;gap:8px}.thumb{border:1px solid transparent;padding:0;background:#101010;opacity:.55;cursor:pointer}.thumb.active{border-color:#fff;opacity:1}.thumb img{display:block;width:100%;aspect-ratio:1.35/1;object-fit:cover}.toast{position:fixed;z-index:200;left:50%;top:50%;transform:translate(-50%,-50%) translateY(10px);background:#fff;color:#000;padding:12px 17px;border-radius:6px;font-size:13px;opacity:0;pointer-events:none;transition:.22s}.toast.show{opacity:1;transform:translate(-50%,-50%)}
+    .viewer{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.96);display:none}.viewer.open{display:grid;grid-template-columns:minmax(0,1fr) 132px}.viewer-main{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.viewer-media{max-width:calc(100vw - 180px);max-height:92vh;object-fit:contain;user-select:none;cursor:zoom-in;transition:transform .22s ease}.viewer-media.zoomed{transform:scale(1.8);cursor:zoom-out}.viewer-video{display:none;width:min(1280px,calc(100vw - 220px));aspect-ratio:16/9;max-height:82vh;border:0;background:#000}.viewer-video.active{display:block}.viewer-close{position:absolute;z-index:3;top:20px;left:22px;border:0;background:rgba(0,0,0,.45);width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer}.viewer-info{position:absolute;bottom:20px;left:24px;right:24px;pointer-events:none;text-shadow:0 1px 12px #000}.viewer-info h2{margin:0 0 5px;font-size:20px}.viewer-info p{margin:0;color:#aaa;font-size:12px}.arrow{position:absolute;top:50%;transform:translateY(-50%);height:68px;width:48px;border:0;background:rgba(0,0,0,.35);font-size:28px;cursor:pointer}.arrow.prev{left:0}.arrow.next{right:0}.thumbs{border-left:1px solid #202020;padding:10px;overflow:auto;display:flex;flex-direction:column;gap:8px}.thumb{border:1px solid transparent;padding:0;background:#101010;opacity:.55;cursor:pointer}.thumb.active{border-color:#fff;opacity:1}.thumb img{display:block;width:100%;aspect-ratio:1.35/1;object-fit:cover}.toast{position:fixed;z-index:200;left:50%;top:50%;transform:translate(-50%,-50%) translateY(10px);background:#fff;color:#000;padding:12px 17px;border-radius:6px;font-size:13px;opacity:0;pointer-events:none;transition:.22s}.toast.show{opacity:1;transform:translate(-50%,-50%)}
     @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.about-grid{grid-template-columns:1fr}.about-copy{max-width:850px}.viewer.open{grid-template-columns:minmax(0,1fr) 100px}.viewer-media{max-width:calc(100vw - 120px)}}
     @media(max-width:700px){:root{--nav:60px}.shell{padding:0 14px}header{padding:0 14px}.brand{font-size:12px}.nav{gap:14px;font-size:12px}.grid{grid-template-columns:repeat(2,1fr);gap:6px}.card-info{opacity:1;transform:none;left:10px;bottom:9px}.card img{filter:brightness(.72)}.title{font-size:13px}.date{font-size:9px}.about-name{font-size:54px}.about-copy{font-size:22px}.meta-row{grid-template-columns:1fr;gap:8px}.viewer.open{grid-template-columns:1fr}.thumbs{display:none}.viewer-media{max-width:100vw;max-height:82vh}.section-head{align-items:start;flex-direction:column;gap:8px}footer{flex-direction:column}}
   </style>
-<script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000232882069a2d7731c89fa132%26fn%3Dindex-thumbnail-auto.html%26cd%3Dattachment%26ts%3D496758%26p%3Dfs%26cid%3D1%26sig%3D53327768b7331b9baf902057b5ee3e84ebcbacfad2694c14a9ec39fe8cef192f%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_0000000083bc820bb84a0f32dd81615d%26fn%3Dindex-scifi-video.html%26cd%3Dattachment%26ts%3D496758%26p%3Dfs%26cid%3D1%26sig%3D9c76ff581e86f848c345a1f1a03615ba146f74a0279d74617b8570eec3a2ae26%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="03012818b09c44e4b486267bac7" src="//local.adguard.org?ts=1788329663289&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body>
 <header>
   <a class="brand" href="#about" data-route="about">O TAE HOON</a>
@@ -70,6 +70,7 @@
     <button class="viewer-close" aria-label="Close">×</button>
     <button class="arrow prev" aria-label="Previous">‹</button>
     <img class="viewer-media" id="viewerImage" alt="" />
+    <iframe class="viewer-video" id="viewerVideo" title="Portfolio video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <button class="arrow next" aria-label="Next">›</button>
     <div class="viewer-info"><h2 id="viewerTitle"></h2><p id="viewerMeta"></p></div>
   </div>
@@ -100,7 +101,7 @@ const WORK_ROOTS = {
   여기에 없는 폴더도 Personal 폴더 아래에 있으면 자동으로 표시됩니다.
 */
 const PROJECT_META = {
-  '2025010scificorridor': {title:'Sci-Fi Corridor', publishedAt:'2025-01-10'},
+  '2025010scificorridor': {title:'Sci-Fi Corridor', publishedAt:'2025-01-10', youtube:'U4R8QKvb9Uo'},
   '202507tiles': {title:'Tiles Study', publishedAt:'2025-07-01'},
   '202509pillar': {title:'Pillar Study', publishedAt:'2025-09-01'},
   '202512rockstudy': {title:'Rock Study', publishedAt:'2025-12-01'}
@@ -190,6 +191,8 @@ async function discoverPersonalProjects(){
       const cover=encodeURI(thumbnailPath||paths[0]);
       const images=(contentPaths.length?contentPaths:paths).map(path=>encodeURI(path));
 
+      const thumbnailPosition=/early[\s_-]*works?2/i.test(folder)?'50% 18%':'50% 50%';
+
       const project={
         id,
         title:titleFromFolder(folder),
@@ -197,6 +200,8 @@ async function discoverPersonalProjects(){
         publishedAt:dateFromFolder(folder),
         folder:`${root}${folder}`,
         cover,
+        thumbnailPosition,
+        youtube:PROJECT_META[folder]?.youtube||null,
         images
       };
       imageCache.set(id,images);
@@ -219,9 +224,10 @@ async function discoverPersonalProjects(){
 }
 
 async function loadProjectImages(project){
-  if(imageCache.has(project.id))return imageCache.get(project.id);
-  const images=project.images?.length?project.images:[project.cover];
-  imageCache.set(project.id,images);
+  let images=imageCache.has(project.id)?[...imageCache.get(project.id)]:[...(project.images?.length?project.images:[project.cover])];
+  if(project.youtube && !images.some(item=>item===`youtube:${project.youtube}`)){
+    images.push(`youtube:${project.youtube}`);
+  }
   return images;
 }
 
@@ -259,7 +265,7 @@ $$('[data-route]').forEach(x=>x.addEventListener('click',e=>{
   route(x.dataset.route);
 }));
 
-function card(p,rank){const el=document.createElement('button');el.className='card';el.dataset.id=p.id;el.innerHTML=`<img loading="lazy" src="${p.cover}" alt="${p.title}"><div class="card-info"><div class="date">${niceDate(p.publishedAt)}</div><div class="title">${p.title}</div></div>${isNew(p.publishedAt)?'<span class="badge">NEW</span>':''}${rank?`<span class="rank">#${rank}</span>`:''}`;el.querySelector('img').addEventListener('error',()=>el.remove());el.addEventListener('click',()=>openViewer(p));return el;}
+function card(p,rank){const el=document.createElement('button');el.className='card';el.dataset.id=p.id;el.innerHTML=`<img loading="lazy" src="${p.cover}" alt="${p.title}" style="object-position:${p.thumbnailPosition||'50% 50%'}"><div class="card-info"><div class="date">${niceDate(p.publishedAt)}</div><div class="title">${p.title}</div></div>${isNew(p.publishedAt)?'<span class="badge">NEW</span>':''}${rank?`<span class="rank">#${rank}</span>`:''}`;el.querySelector('img').addEventListener('error',()=>el.remove());el.addEventListener('click',()=>openViewer(p));return el;}
 function renderFilters(root,cats,cb){root.innerHTML='';['ALL',...cats].forEach(c=>{const b=document.createElement('button');b.className='filter'+(state.filter===c?' active':'');b.textContent=c==='ALL'?'ALL':categoryLabel(c);b.onclick=()=>{state.filter=c;renderFilters(root,cats,cb);cb();};root.appendChild(b)});}
 function renderPersonal(){
   $$('#personalWorkTabs [data-work-tab]').forEach(button=>{
@@ -300,7 +306,10 @@ async function openViewer(p){
   $('#viewerTitle').textContent=p.title;
   $('#viewerMeta').textContent='Loading images…';
   $('#viewerImage').classList.remove('zoomed');
+  $('#viewerImage').style.display='block';
   $('#viewerImage').src=p.cover;
+  $('#viewerVideo').classList.remove('active');
+  $('#viewerVideo').src='';
   $('#thumbs').innerHTML='';
 
   const images=await loadProjectImages(p);
@@ -314,6 +323,8 @@ async function openViewer(p){
 
 function closeViewer(){
   $('#viewerImage').classList.remove('zoomed');
+  $('#viewerVideo').src='';
+  $('#viewerVideo').classList.remove('active');
   $('#viewer').classList.remove('open');
   $('#viewer').setAttribute('aria-hidden','true');
   document.body.style.overflow='';
@@ -322,20 +333,41 @@ function closeViewer(){
 function paintViewer(){
   const p=state.viewerProject;
   if(!p)return;
-  const imgs=state.viewerImages?.length?state.viewerImages:[p.cover];
-  state.viewerIndex=(state.viewerIndex+imgs.length)%imgs.length;
+  const items=state.viewerImages?.length?state.viewerImages:[p.cover];
+  state.viewerIndex=(state.viewerIndex+items.length)%items.length;
+  const current=items[state.viewerIndex];
+  const isVideo=typeof current==='string' && current.startsWith('youtube:');
+
   $('#viewerImage').classList.remove('zoomed');
-  $('#viewerImage').src=imgs[state.viewerIndex];
-  $('#viewerImage').alt=p.title;
+  $('#viewerVideo').src='';
+  $('#viewerVideo').classList.remove('active');
+
+  if(isVideo){
+    const videoId=current.replace('youtube:','');
+    $('#viewerImage').style.display='none';
+    $('#viewerVideo').classList.add('active');
+    $('#viewerVideo').src=`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+  }else{
+    $('#viewerImage').style.display='block';
+    $('#viewerImage').src=current;
+    $('#viewerImage').alt=p.title;
+  }
+
   $('#viewerTitle').textContent=p.title;
-  $('#viewerMeta').textContent=`${categoryLabel(p.category)} · ${niceDate(p.publishedAt)} · ${state.viewerIndex+1}/${imgs.length}`;
+  $('#viewerMeta').textContent=`${categoryLabel(p.category)} · ${niceDate(p.publishedAt)} · ${state.viewerIndex+1}/${items.length}${isVideo?' · Video':''}`;
 
   const t=$('#thumbs');
   t.innerHTML='';
-  imgs.forEach((src,i)=>{
+  items.forEach((item,i)=>{
     const b=document.createElement('button');
     b.className='thumb'+(i===state.viewerIndex?' active':'');
-    b.innerHTML=`<img src="${src}" alt="">`;
+    const itemIsVideo=typeof item==='string' && item.startsWith('youtube:');
+    if(itemIsVideo){
+      const videoId=item.replace('youtube:','');
+      b.innerHTML=`<div style="position:relative"><img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="Video"><span style="position:absolute;inset:0;display:grid;place-items:center;font-size:28px;text-shadow:0 2px 8px #000">▶</span></div>`;
+    }else{
+      b.innerHTML=`<img src="${item}" alt="">`;
+    }
     b.onclick=()=>{
       state.viewerIndex=i;
       paintViewer();
@@ -344,7 +376,6 @@ function paintViewer(){
     t.appendChild(b);
   });
 }
-
 function moveViewer(dir){
   const p=state.viewerProject;
   if(!p)return;
@@ -355,6 +386,7 @@ function moveViewer(dir){
 }
 $('#viewerImage').addEventListener('click',e=>{
   e.stopPropagation();
+  if($('#viewerImage').style.display==='none')return;
   $('#viewerImage').classList.toggle('zoomed');
 });
 $('.viewer-close').onclick=closeViewer;$('.prev').onclick=()=>moveViewer(-1);$('.next').onclick=()=>moveViewer(1);$('#viewer').addEventListener('click',e=>{if(e.target===$('#viewer'))closeViewer()});
