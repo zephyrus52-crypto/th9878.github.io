@@ -1,0 +1,7 @@
+TITLE=TILES STUDY
+DESCRIPTION=타일 형태의 반복 구조와 표면 디테일을 중심으로 제작한 에셋 스터디입니다.
+형태의 반복이 단조롭게 보이지 않도록 미세한 높이 차이와 손상 표현을 추가하고,
+재질의 거칠기와 표면 변화를 통해 자연스러운 사용감을 표현했습니다.
+
+PERIOD=2025.07
+TOOLS=3ds Max / ZBrush / Substance 3D Painter / Marmoset Toolbag

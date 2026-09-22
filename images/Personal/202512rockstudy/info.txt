@@ -1,0 +1,7 @@
+TITLE=ROCK STUDY
+DESCRIPTION=자연 암석의 형태와 표면을 분석하여 제작한 환경 에셋 스터디입니다.
+큰 덩어리와 파쇄면을 중심으로 실루엣을 구성하고,
+침식과 균열, 표면의 색상 변화를 통해 자연스러운 암석의 형태와 재질을 표현했습니다.
+
+PERIOD=2025.12
+TOOLS=3ds Max / ZBrush / Substance 3D Painter / Marmoset Toolbag

@@ -1,0 +1,7 @@
+TITLE=PILLAR STUDY
+DESCRIPTION=석조 기둥을 주제로 형태와 재질 표현을 연습한 에셋 스터디입니다.
+큰 형태에서 세부 장식으로 이어지는 실루엣과 구조를 구성하고,
+석재의 마모와 손상, 표면의 색상 변화를 통해 오래된 구조물의 느낌을 표현했습니다.
+
+PERIOD=2025.09
+TOOLS=3ds Max / ZBrush / Substance 3D Painter / Marmoset Toolbag
