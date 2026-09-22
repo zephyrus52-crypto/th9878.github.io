@@ -4,5 +4,6 @@ DESCRIPTION= 낡은 의자를 주제로 제작한 프랍입니다.
 페인트 레이어와 스텐실을 적극적으로 활용해 페인트의 벗겨짐과 얼룩, 표면의 변화를 더해
 단조로울 수 있는 재질에 풍부한 웨더링 디테일을 표현했습니다.
 
-PERIOD= TOOLS=3ds Max / RizomUV / Substance 3D Painter
+PERIOD=2026.3
+TOOLS=3ds Max / RizomUV / Substance 3D Painter
 / Marmoset Toolbag

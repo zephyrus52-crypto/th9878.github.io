@@ -4,5 +4,6 @@ DESCRIPTION=실존하는 La Pavoni 에스프레소 머신을 기반으로 형태
 구리, 황동 플라스틱, 페인트 등 서로 다른 재질의 러프니스 차이와
 각 표면의 미세한 노이즈 표현에 중점을 두어 재질별 특성이 자연스럽게 드러나도록 제작했습니다.
 
-PERIOD= TOOLS=3ds Max / RizomUV / Substance 3D Painter
+PERIOD=2026.2
+TOOLS=3ds Max / RizomUV / Substance 3D Painter
 / Marmoset Toolbag

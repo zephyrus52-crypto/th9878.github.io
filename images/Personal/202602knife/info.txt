@@ -4,5 +4,6 @@ DESCRIPTION=Buck 120 나이프와 여러 공구를 조합하여 제작한 포스
 용접 부위는 스컬핑을 통해 형태와 질감을 표현했으며,
 녹과 표면의 러프니스 변화는 Substance 3D Painter를 활용해 제작했습니다.
 
-PERIOD= TOOLS=3ds Max / RizomUV / Substance 3D Painter/ Zbrush
+PERIOD=2026.2
+TOOLS=3ds Max / RizomUV / Substance 3D Painter/ Zbrush
 / Marmoset Toolbag

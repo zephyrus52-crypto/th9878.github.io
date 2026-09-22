@@ -4,5 +4,6 @@ DESCRIPTION=체스터필드 스타일의 디자인을 재해석하여 제작한 
 제한된 종류의 재질이 단조롭게 보이지 않도록 메쉬에 부분적인 대미지를 더해 실루엣에 변화를 주었으며,
 마스크와 노이즈를 활용해 색상과 러프니스에 다양한 변화를 주어 표면의 디테일을 표현했습니다.
 
-PERIOD= TOOLS=3ds Max / RizomUV / Substance 3D Painter/ Zbrush
+PERIOD=2026.6
+TOOLS=3ds Max / RizomUV / Substance 3D Painter/ Zbrush
 / Marmoset Toolbag
